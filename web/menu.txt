@@ -1,0 +1,10 @@
+<!--<@% page pageEncoding="utf-8"%>-->
+	<!--menu.txt-START-->
+	<link rel="stylesheet" type="text/css" href="181213.css">
+	<ul class="menu">
+		<li><a href="/">主页</a></li>
+		<li><a href="/m_b.jsp">留言板</a></li>
+		<li><a href="/library.jsp">图书馆座位预约</a></li>
+		<li><a href="https://github.com/cym2018/Cpp_Socket">C++实现http请求</a></li>
+	</ul>
+	<!--menu.txt-END-->
