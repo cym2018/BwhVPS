@@ -27,7 +27,7 @@
 </web-app>
 ```
 ## struts.xml
-同上,稍微改一下class的内容
+同上,只需修改action/class的内容
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -80,12 +80,42 @@ welcome.jsp
 <%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>welcome</title>
+    <title>Welcome</title>
 </head>
 <body>
 hello,<s:property value="#request.name"/>!
 </body>
 </html>
+```
+## Action
+```java
+package xyz.cym2018.struts.action;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+
+public class Action1 extends ActionSupport {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String execute() throws Exception {
+        if (!name.equals("A")) {
+            Map request=(Map) ActionContext.getContext().get("request");
+            request.put("name",name);
+            return "success";
+        }
+        return "error";
+    }
+}
 ```
 ## 运行
 结束
