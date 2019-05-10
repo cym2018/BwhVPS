@@ -7,7 +7,6 @@
 [下载struts](https://struts.apache.org/download.cgi#struts2520)
 
 将struts解压到项目的WEB-INF/lib文件夹中,同时给tomcat/lib复制一份.
-###### 遇到的问题:导入完整版本(65M)会出错,但4M版本没有问题.
 ## web.xml
 照抄老师的代码
 ```xml
@@ -119,4 +118,11 @@ public class Action1 extends ActionSupport {
 ```
 ## 运行
 结束
+## 总结
+从昨天下午到今天早上,新建struts项目一直不太顺利,感觉踩到了不少坑,但运行成功后,发现其实也没什么好总结的.
 
+需要注意的地方有:
+
+1.给tomcat/lib目录复制一份struts
+
+2.导入struts的完整版会出错,但4M版不会
