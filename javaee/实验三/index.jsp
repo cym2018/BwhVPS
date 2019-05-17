@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: cym
-  Date: 2019/5/11
-  Time: 6:01
+  Date: 2019/5/17
+  Time: 17:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>Index</title>
+    <title>index</title>
 </head>
 <body>
 <h2>添加学生信息</h2>
