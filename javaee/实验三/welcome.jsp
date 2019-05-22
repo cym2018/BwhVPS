@@ -16,7 +16,7 @@
 姓名:<s:property value="#request.name"/><br/>
 性别:<s:property value="#request.gender"/><br/>
 专业:<s:property value="#request.major"/><br/>
-出生时间:<s:property value="#request.birthdate"/><br/>
+出生时间:<s:property value="#request.birthday"/><br/>
 备注:<s:property value="#request.note"/>
 </body>
 </html>
