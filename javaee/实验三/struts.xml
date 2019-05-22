@@ -5,10 +5,15 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+            <interceptor name="Intercepter1" class="xyz.cym2018.struts.Interceptor1"/>
+        </interceptors>
         <action name="action1" class="xyz.cym2018.struts.Action1">
             <result name="success">/welcome.jsp</result>
             <result name="input">/index.jsp</result>
+            <result name="error">/index.jsp</result>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="Intercepter1"></interceptor-ref>
         </action>
     </package>
-
 </struts>
