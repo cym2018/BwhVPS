@@ -1,0 +1,19 @@
+数据库:web
+表名:info
+建表语句:
+create table info(
+id int not null primary key auto_increment,
+username varchar(20),
+name varchar(20),
+password varchar(20),
+gender int,
+major varchar(10),
+birthday date,
+note varchar(20)
+);
+测试语句:
+    增:
+        insert into info (id,username,name,password,gender,birthday,note,major) values (null,'username1','name1','password1',1,'2019-01-01','note1','major1');
+        Query OK, 1 row affected (0.07 sec)
+    改:
+        update info set name='name1update', password='passwordupdate' where username='username1';
