@@ -4,7 +4,7 @@ http://tomcat.apache.org/
 1.给startup.sh加执行权限
 2.执行startup.sh
 
-
+# 备用
 [Tomcat 自动加载更新配置](https://blog.csdn.net/lismooth/article/details/52886205)
 1.找到tomacat的安装目录。
 
