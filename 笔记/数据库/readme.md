@@ -1,17 +1,20 @@
-# 设置密码
+# 安装
+## 设置密码
 ```sql
 SET PASSWORD='';
 alter user 'dzy'@'%' identified by '123456' #修改密码
 ```
-# 设置时区
+# 启动
+## 设置时区
 ```sql
 set global time_zone = '+8:00';
 ```
-# 输出唯一值
+# 使用
+## 输出唯一值
 ```sql
 select distinct(*) from table;
 ```
-# 结果排序
+## 结果排序
 ```sql
 select * from essay order by id asc 从小到大
 select * from essay order by id desc 从大到小
