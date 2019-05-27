@@ -23,4 +23,4 @@ key|策略
 -|-
 assigned|添加数据时自己设置id
 native|数据库自动生成int id
-uuid.hex|自动生成16进制uuid主键
+uuid.hex|hibernate生成16进制uuid主键
