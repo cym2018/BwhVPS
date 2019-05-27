@@ -16,4 +16,11 @@ url|数据库url
 username|username
 password|password
 show_sql|将sql语句输出到控制台,方便调试程序
-mapping resource|mapping 源文件
+mapping resource|映射文件位置
+## hibernate接口
+## 主键生成策略
+key|策略
+-|-
+assigned|添加数据时自己设置id
+native|数据库自动生成int id
+uuid.hex|自动生成16进制uuid主键
