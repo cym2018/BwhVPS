@@ -16,4 +16,4 @@ url|数据库url
 username|username
 password|password
 show_sql|将sql语句输出到控制台,方便调试程序
-
+mapping resource|mapping 源文件
