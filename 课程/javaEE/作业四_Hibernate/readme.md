@@ -8,7 +8,12 @@ http://hibernate.org/orm/downloads/
 
 同理导入mysql驱动
 ## hibernate.cfg.xml
-name|价格|数量
--|-|-
-123|123|123
+属性|作用
+-|-
+dialect|sql版本格式
+driver_class|驱动程序
+url|数据库url
+username|username
+password|password
+show_sql|将sql语句输出到控制台,方便调试程序
 
