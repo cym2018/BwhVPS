@@ -1,13 +1,15 @@
 # Hibernate 框架
-## 下载
+## 使用前的准备
+### 下载
 http://hibernate.org/orm/downloads/
-## 导入
+### 导入
 在File/Project Structure/Libraries/Hibernate/
 
 添加hibernate 核心包(hibernate-core-6.0.0.Alpha2.jar)
 
 同理导入mysql驱动
-## hibernate.cfg.xml
+## 开始使用
+### hibernate.cfg.xml
 属性|作用
 -|-
 dialect|sql版本格式
@@ -17,8 +19,11 @@ username|username
 password|password
 show_sql|将sql语句输出到控制台,方便调试程序
 mapping resource|映射文件位置
-## hibernate接口
-## 主键生成策略
+### hibernate接口
+
+### mapping文件
+作用:使数据库的列与java类中的变量相互对应
+#### 主键生成策略
 key|策略
 -|-
 assigned|添加数据时自己设置id
