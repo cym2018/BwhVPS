@@ -59,3 +59,18 @@ create table selectcourse(id int primary key auto_increment not null,studentid i
 ||==========||===============||
 
 ```
+目录结构:
+>javaee4
+>>src
+>>>xyz.cym2018
+>>>hibernate.cfg.xml
+>>>struts.xml
+>>web
+>>>WEB-INF
+>>>>web.xml
+>>>index.jsp
+>>>login.jsp
+>>>reg.jsp
+>>>reg_succ.jsp
+>>>select_course.jsp
+>>>show_select_course.jsp
