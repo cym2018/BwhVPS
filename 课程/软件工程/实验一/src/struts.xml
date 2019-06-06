@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="action1" class="xyz.cym2018.struts.action1_reg">
+            <result name="input">/reg.jsp</result>
+            <result name="success">/reg_succ.jsp</result>
+        </action>
+        <action name="action2" class="xyz.cym2018.struts.action2_cancel">
+            <result name="success">/cancel_succ.jsp</result>
+            <result name="input">/cancel.jsp</result>
+        </action>
+        <action name="action3" class="xyz.cym2018.struts.action3_changepass">
+            <result name="success">changepass_succ.jsp</result>
+            <result name="input">changepass.jsp</result>
+        </action>
+        <action name="action4" class="xyz.cym2018.struts.action4_login">
+            <result name="success">index.jsp</result>
+            <result name="input">login.jsp</result>
+        </action>
+        <action name="action5" class="xyz.cym2018.struts.action5_money">
+            <result name="success">index.jsp</result>
+            <result name="error">money.jsp</result>
+            <result name="login">login.jsp</result>
+        </action>
+        <action name="action6" class="xyz.cym2018.struts.action6_viewinfo">
+            <result name="login">login.jsp</result>
+            <result name="success">viewinfo.jsp</result>
+        </action>
+        <action name="action7" class="xyz.cym2018.struts.action7_viewhistory">
+            <result name="success">viewhistory.jsp</result>
+            <result name="login">login.jsp</result>
+        </action>
+        <action name="action8" class="xyz.cym2018.struts.action8_transfer">
+            <result name="login">login.jsp</result>
+            <result name="success">index.jsp</result>
+            <result name="input">transfer.jsp</result>
+        </action>
+    </package>
+</struts>

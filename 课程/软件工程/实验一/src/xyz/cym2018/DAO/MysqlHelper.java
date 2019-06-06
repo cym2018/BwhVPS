@@ -19,7 +19,7 @@ public class MysqlHelper {
     }
 
     // 获取id
-    private static int GetID(String card_id) {
+    public static int GetID(String card_id) {
         ResultSet resultSet = Read("select id from userinfo where card_id='" + card_id + "'");
         try {
             resultSet.next();
@@ -32,7 +32,7 @@ public class MysqlHelper {
 
     // 写入
     private static void Write(String strSQL) {
-        System.out.println("SQL:"+strSQL);
+        System.out.println("SQL:" + strSQL);
         try {
             Connection connection = GetMysqlConnection();
             connection.prepareStatement(strSQL).executeUpdate();
@@ -41,10 +41,22 @@ public class MysqlHelper {
             ErrorReporter("Write", e);
         }
     }
-
+    public static String GetName(int id){
+        try {
+            ResultSet resultSet=Read("select * from userinfo where id="+id);
+            resultSet.next();
+            return resultSet.getString("name");
+        } catch (SQLException e) {
+            ErrorReporter("GetName",e);
+        }
+        return null;
+    }
+    public static String GetName(String card_id){
+return GetName(GetID(card_id));
+    }
     // 读取
     private static ResultSet Read(String strSQL) {
-        System.out.println("SQL:"+strSQL);
+        System.out.println("SQL:" + strSQL);
         try {
             Connection connection = GetMysqlConnection();
             ResultSet resultSet = connection.prepareStatement(strSQL).executeQuery();
@@ -85,20 +97,40 @@ public class MysqlHelper {
     }
 
     // 销户
-    public static void DeleteAccount(int id) {
-        Write("delete from userinfo where id ='" + id + "'");
-        Write("delete from account where id ='" + id + "'");
-        Write("delete from balance where id ='" + id + "'");
+    public static boolean DeleteAccount(String card_id, String name, String id_number, String password) {
+        try {
+            // 检测余额
+            if (GetBalance(card_id) != 0)
+                return false;
+            // 验证信息
+            ResultSet resultSet = Read("select * from userinfo where card_id='" + card_id + "'");
+            ResultSet resultSet1 = Read("select * from account where card_id='" + card_id + "'");
+            if (resultSet.next() && resultSet1.next())
+                if (resultSet.getString("name").equals(name)
+                        && resultSet.getString("id_number").equals(id_number)
+                        && resultSet1.getString("password").equals(password)) {
+                    DeleteAccount(card_id);
+                    return true;
+                }
+        } catch (SQLException e) {
+            ErrorReporter("DeleteAccount", e);
+        }
+        return false;
     }
 
-    public static void DeleteAccount(String card_id) {
+    private static void DeleteAccount(int id) {
+        Write("update userinfo set id_number='' , name='' , phone_number='' where id ='" + id + "'");
+        Write("update account set password='' where id ='" + id + "'");
+    }
+
+    private static void DeleteAccount(String card_id) {
         int id = GetID(card_id);
         DeleteAccount(id);
     }
 
     // 查询余额
     public static float GetBalance(int id) {
-        ResultSet resultSet = Read("select balance from balance");
+        ResultSet resultSet = Read("select balance from balance where id=" + id);
         try {
             resultSet.next();
             return resultSet.getFloat(1);
@@ -128,21 +160,30 @@ public class MysqlHelper {
     public static void Transfer(String card_id1, String card_id2, float amount) {
         // card_id1的操作
         float before = GetBalance(GetID(card_id1));
-        float after = before + amount;
-        int id = GetID(card_id1);
-        Write("insert into history (id,from_id,to_id,balance) values (null,'" + card_id1 + "','" + card_id2 + "','" + amount + "')");
-        Write("update balance set balance='" + after + "'where id=" + id);
+        float after = before - amount;
+        int id1 = GetID(card_id1);
+        int id2 = GetID(card_id2);
+        Write("insert into history (id,from_id,to_id,amount) values (null,'" + id1 + "','" + id2 + "','" + (-amount) + "')");
+        Write("update balance set balance='" + after + "'where id=" + id1);
         // card_id2的操作
         before = GetBalance(GetID(card_id2));
-        after = before - amount;
-        id = GetID(card_id2);
-        Write("insert into history (id,from_id,to_id,balance) values (null,'" + card_id2 + "','" + card_id1 + "','" + amount + "')");
-        Write("update balance set balance='" + after + "'where id=" + id);
+        after = before + amount;
+        Write("insert into history (id,from_id,to_id,amount) values (null,'" + id2 + "','" + id1 + "','" + amount + "')");
+        Write("update balance set balance='" + after + "'where id=" + id2);
+    }
+    public static boolean TransferOB(String card_id,String name){
+        try {
+            ResultSet resultSet=Read("select * from userinfo where card_id='"+card_id+"' and name='"+name+"'");
+            return resultSet.next();
+        } catch (SQLException e) {
+            ErrorReporter("TransferOB",e);
+        }
+        return false;
     }
 
     // 交易历史查询
     public static ResultSet QueryHistory(int id) {
-        return Read("select * from history where id=" + id);
+        return Read("select * from history where from_id=" + id);
     }
 
     public static ResultSet QueryHistory(String card_id) {
@@ -150,9 +191,35 @@ public class MysqlHelper {
         return QueryHistory(id);
     }
 
+    public static String GetCardId(int id) {
+        if (id == 0)
+            return "现金交易";
+        ResultSet resultSet = Read("select card_id from account where id=" + id);
+        try {
+            if (resultSet.next())
+                return resultSet.getString(1);
+            return "未知账户";
+        } catch (SQLException e) {
+            ErrorReporter("GetCardId", e);
+        }
+        return null;
+    }
+
     // 错误处理
     private static void ErrorReporter(String FunctionName, Object e) {
         System.out.println("MysqlHelper." + FunctionName + "()\nERROR:" + e.toString());
         System.exit(-1);
     }
+
+    // 验证账号密码
+    public static boolean Login(String card_id, String password) {
+        try {
+            ResultSet resultSet = Read("select * from account where card_id='" + card_id + "' and password='" + password + "'");
+            return resultSet.next();
+        } catch (SQLException e) {
+            ErrorReporter("Login",e);
+        }
+        return false;
+    }
+
 }
