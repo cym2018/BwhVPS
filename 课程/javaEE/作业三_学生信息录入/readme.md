@@ -51,3 +51,16 @@ note varchar(20)
     改:
         update info set name='name1update', password='passwordupdate' where username='username1';
 ```
+```cpp
+使用的jar包
+    commons-fileupload-1.4.jar
+    commons-fileupload.jar
+    commons-io-2.6.jar
+    commons-io.jar
+    commons-lang.jar
+    freemarker.jar
+    log4j.jar
+    ognl.jar
+    readme.md
+    struts2-core.jar
+```
