@@ -3,11 +3,9 @@
  - [x] 选课功能实现
  - [x] 选课结果查看功能实现
  - [x] 退课功能实现
- - [ ] 其他功能完善 (注册,退出登录)
+ - [x] 其他功能完善 (注册,退出登录)
 ## 数据库结构
 ```sql
-#表名:info
-#建表语句:
 #表名:login
 #建表语句:
 create table login(id int primary key auto_increment not null,username varchar(20) not null,password varchar(20) not null);
@@ -18,7 +16,6 @@ create table login(id int primary key auto_increment not null,username varchar(2
 #||==========||===============||
 #|| password ||  varchar(20)  ||
 #||==========||===============||
-
 #表名:courselist
 #建表语句:
 create table courselist(id int not null primary key auto_increment,coursename varchar(20),semester varchar(20),studyhour int,credits int);
@@ -44,7 +41,6 @@ insert into courselist (id,coursename,semester,studyhour,credits) values
 (null,'历史','大四上',24,7),
 (null,'地理','大四下',25,8),
 (null,'政治','大五上',26,9);
-
 #表名:selectcourse
 #建表语句
 create table selectcourse(id int primary key auto_increment not null,studentid int,courseid int);
