@@ -19,7 +19,7 @@ C:struts框架.
 3.修改struts.xml
 ### 工作流程
 1.http请求首先被struts框架处理,获取提交的参数
-
+d
 2.根据web.xml的设置,选择响应的action
 
 3.使用执行set函数向action提交参数值
