@@ -21,7 +21,7 @@ create table login(id int primary key auto_increment not null,username varchar(2
 
 #表名:courselist
 #建表语句:
-create table courselist(id int not null primary key auto_increment,coursename varchar(20),semester varchar(20),studyhour int,credits int)
+create table courselist(id int not null primary key auto_increment,coursename varchar(20),semester varchar(20),studyhour int,credits int);
 #||============||===============||===============||
 #||     id     ||     int       || 课程号        ||
 #||============||===============||===============||
@@ -34,7 +34,7 @@ create table courselist(id int not null primary key auto_increment,coursename va
 #||   credits  ||     int       || 学分          ||
 #||============||===============||===============||
 #测试用例:
-insert into courselist (id,coursename,semester,studyhour,credits)values
+insert into courselist (id,coursename,semester,studyhour,credits) values
 (null,'语文','大一上',18,1),
 (null,'数学','大一下',19,2),
 (null,'英语','大二上',20,3),
@@ -47,7 +47,7 @@ insert into courselist (id,coursename,semester,studyhour,credits)values
 
 #表名:selectcourse
 #建表语句
-create table selectcourse(id int primary key auto_increment not null,studentid int,courseid int)
+create table selectcourse(id int primary key auto_increment not null,studentid int,courseid int);
 #||==========||===============||
 #||    id    ||      int      ||
 #||==========||===============||
