@@ -30,7 +30,6 @@ public class SelectCourseDAO {
         Query query = session.createQuery("from SelectCourse where userid=" + userid + " and courseid=" + courseid);
         List result=query.getResultList();
         if (result.size() > 0) {
-            SelectCourse selectCourse = new SelectCourse(userid, courseid);
             session.delete(result.get(0));
         } else {
             SelectCourse selectCourse = new SelectCourse(userid, courseid);
