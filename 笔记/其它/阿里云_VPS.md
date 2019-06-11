@@ -71,4 +71,21 @@ pip install shadowsocks
 ssserver -d start -c ss.json
 # 虽然不能翻墙,但可以解除十教看视频的限制
 # 下载5.50mbps 上传 5.47mbps  凑合
+
+# 数据库安装 mariadb(=mysql) CTRL+C FROM https://blog.csdn.net/qq_39719589/article/details/81835330
+yum install mariadb
+yum install mariadb-server
+# 启动mariadb
+service mariadb start
+# 第一次登陆,修改密码
+mysql -u root -p
+# 初始密码为空 登陆时直接回车
+# 设置密码
+set password=password('$password');
+# 设置开机启动
+systemctl enable mariadb
+# 时区
+set global time_zone='+8:00';
+
+
 ```
