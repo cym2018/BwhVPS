@@ -86,6 +86,14 @@ set password=password('$password');
 systemctl enable mariadb
 # 时区
 set global time_zone='+8:00';
+# 修改编码
+set character_set_client='utf8';
+set character_set_connection='utf8';
+set character_set_database='utf8';
+set character_set_results='utf8';
+set character_set_server='utf8';
+show variables like  'character%';
+
 
 # 项目传到服务器,tomcat编译失败,因为jdk版本只有52,运行需要的版本是56
 # 重新安装一遍jdk
@@ -97,4 +105,7 @@ export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/li
 export PATH=$PATH:$JAVA_HOME/bin
 source /etc/profile
 
+
+# 查看端口占用
+netstat -tunlp
 ```

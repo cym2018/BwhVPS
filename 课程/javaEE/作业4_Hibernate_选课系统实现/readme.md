@@ -1,4 +1,5 @@
 # Hibernate框架的使用
+[成品](http://cym2019.xyz:8080/4/)
  - [x] 登录功能实现
  - [x] 选课功能实现
  - [x] 选课结果查看功能实现
@@ -41,6 +42,8 @@ insert into courselist (id,coursename,semester,studyhour,credits) values
 (null,'历史','大四上',24,7),
 (null,'地理','大四下',25,8),
 (null,'政治','大五上',26,9);
+
+
 #表名:selectcourse
 #建表语句
 create table selectcourse(id int primary key auto_increment not null,studentid int,courseid int);
