@@ -52,4 +52,23 @@ iptables -I INPUT -s 140.205.225.206/32 -j DROP
 iptables -I INPUT -s 140.205.225.205/32 -j DROP
 iptables -I INPUT -s 140.205.225.195/32 -j DROP
 iptables -I INPUT -s 140.205.225.204/32 -j DROP
+
+# 影梭
+yum install python-setuptools && easy_install pip
+pip install shadowsocks
+#配置 ss.json
+#{
+#"server":"0.0.0.0",
+#"server_port":1000,(对外)
+#"local_address":"127.0.0.1",
+#"local_port":1080,(本地端口)
+#"password":"password",(密码)
+#"timeout":300,(超时时间)
+#"method":"aes-256-cfb",(加密方式)
+#"fast_open":false
+#}
+#启动
+ssserver -d start -c ss.json
+# 虽然不能翻墙,但可以解除十教看视频的限制
+# 下载5.50mbps 上传 5.47mbps  凑合
 ```
