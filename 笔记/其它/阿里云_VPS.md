@@ -87,5 +87,14 @@ systemctl enable mariadb
 # 时区
 set global time_zone='+8:00';
 
+# 项目传到服务器,tomcat编译失败,因为jdk版本只有52,运行需要的版本是56
+# 重新安装一遍jdk
+wget https://download.oracle.com/otn-pub/java/jdk/12.0.1+12/69cfe15208a647278a19ef0990eea691/jdk-12.0.1_linux-x64_bin.tar.gz?AuthParam=1560256090_5f259d6affffd18e47cabf8d586664ef
+mv jdk-12.0.1_linux-x64_bin.tar.gz\?AuthParam\=1560256090_5f259d6affffd18e47cabf8d586664ef jdk-12.0.1_linux-x64_bin.tar.gz
+tar -zxvf jdk-12.0.1_linux-x64_bin.tar.gz
+export JAVA_HOME=/root/software/jdk-12.0.1/
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+source /etc/profile
 
 ```
