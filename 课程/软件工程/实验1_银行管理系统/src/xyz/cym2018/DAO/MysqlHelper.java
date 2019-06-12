@@ -22,8 +22,8 @@ public class MysqlHelper {
     public static int GetID(String card_id) {
         ResultSet resultSet = Read("select id from userinfo where card_id='" + card_id + "'");
         try {
-            resultSet.next();
-            return resultSet.getInt("id");
+            if (resultSet.next())
+                return resultSet.getInt("id");
         } catch (SQLException e) {
             ErrorReporter("GetID", e);
         }
@@ -41,19 +41,22 @@ public class MysqlHelper {
             ErrorReporter("Write", e);
         }
     }
-    public static String GetName(int id){
+
+    public static String GetName(int id) {
         try {
-            ResultSet resultSet=Read("select * from userinfo where id="+id);
+            ResultSet resultSet = Read("select * from userinfo where id=" + id);
             resultSet.next();
             return resultSet.getString("name");
         } catch (SQLException e) {
-            ErrorReporter("GetName",e);
+            ErrorReporter("GetName", e);
         }
         return null;
     }
-    public static String GetName(String card_id){
-return GetName(GetID(card_id));
+
+    public static String GetName(String card_id) {
+        return GetName(GetID(card_id));
     }
+
     // 读取
     private static ResultSet Read(String strSQL) {
         System.out.println("SQL:" + strSQL);
@@ -171,12 +174,13 @@ return GetName(GetID(card_id));
         Write("insert into history (id,from_id,to_id,amount) values (null,'" + id2 + "','" + id1 + "','" + amount + "')");
         Write("update balance set balance='" + after + "'where id=" + id2);
     }
-    public static boolean TransferOB(String card_id,String name){
+
+    public static boolean TransferOB(String card_id, String name) {
         try {
-            ResultSet resultSet=Read("select * from userinfo where card_id='"+card_id+"' and name='"+name+"'");
+            ResultSet resultSet = Read("select * from userinfo where card_id='" + card_id + "' and name='" + name + "'");
             return resultSet.next();
         } catch (SQLException e) {
-            ErrorReporter("TransferOB",e);
+            ErrorReporter("TransferOB", e);
         }
         return false;
     }
@@ -217,7 +221,7 @@ return GetName(GetID(card_id));
             ResultSet resultSet = Read("select * from account where card_id='" + card_id + "' and password='" + password + "'");
             return resultSet.next();
         } catch (SQLException e) {
-            ErrorReporter("Login",e);
+            ErrorReporter("Login", e);
         }
         return false;
     }
