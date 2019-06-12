@@ -24,6 +24,6 @@
 <s:a href="login.jsp">登录</s:a><br/>
 <s:a action="action6">查看信息</s:a><br/>
 <s:a action="action7">查询账单</s:a><br/>
-<s:a action="action8">转账</s:a>
+<s:a href="transfer.jsp">转账</s:a>
 </body>
 </html>
