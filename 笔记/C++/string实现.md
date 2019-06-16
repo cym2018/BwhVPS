@@ -164,3 +164,91 @@ istream& operator>>(istream& is, MyString& ms) {
 }
 
 ```
+```c++
+// 2019年6月16日 16点27分
+// 简化版的string 
+// 在重载运算符+的时候遇到了问题
+// 暂存于此,短时间内可能不会再更新了
+#include <iostream>
+using namespace std;
+class A {
+private:
+	// 字符串的长度
+	int length;
+	// 存放数据
+	char* data;
+public:
+	A(const char* in = "") {
+		cout << "A:构造函数" << endl;
+		SetData(in);
+	}
+	~A() {
+		cout << "A:析构函数" << endl;
+		delete data;
+	}
+
+	// 获取字符串内容
+	const char* GetData() {
+		return data;
+	}
+
+	// 设置字符串和长度
+	A& SetData(const char* in) {
+		delete data;
+		length = (int)strlen(in);
+		int lengthp = length + 1;
+		data = new char[lengthp];
+		strcpy_s(data, lengthp, in);
+		return *this;
+	}
+
+	// 拼接字符串
+	A& Add(const char* in) {
+		// 输入字符串长度,内存大小
+		int inL = (int)strlen(in), inLp = inL + 1;
+		// 得到字符串长度,内存大小
+		int newL = length + inL, newLp = newL + 1;
+		// 内存分配和复制
+		char* temp = new char[newLp];
+		memset(temp, '\0', newLp);
+		memcpy(temp, data, length);
+		memcpy(&temp[length], in, inLp);
+		SetData(temp);
+		delete[] temp;
+		return *this;
+	}
+
+	A& operator=(A& in) {
+		cout << "A:运算符重载=" << endl;
+		this->SetData(in.GetData());
+		return *this;
+	}
+
+	A& operator+(A& in)const {
+		cout << "A:运算符重载+" << endl;
+		A ret;
+		ret.Add(data).Add(in.GetData());
+		return ret;
+	}
+};
+int main()
+{
+	A* a, * b, * c;
+	cout << __LINE__ << "行:定义a" << endl;
+	a = new A("123");
+	cout << __LINE__ << "行:定义b" << endl;
+	b = new A("234");
+	cout << __LINE__ << "行:定义c" << endl;
+	c = new A();
+	cout << __LINE__ << "行:a=a+123+123" << endl;
+	a->Add("123").Add("123");
+	cout << __LINE__ << "行:b=a" << endl;
+	*b = *a;
+	cout << __LINE__ << "行:输出b的内容" << endl;
+	cout << b->GetData() << endl;
+	cout << __LINE__ << "行:c=a+b" << endl;
+	*c = *a + *b;
+	return 0;
+}
+
+```
