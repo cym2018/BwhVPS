@@ -1,3 +1,7 @@
+/*
+2019年7月6日 22点06分
+学习C#
+*/
 using System;
 namespace ConsoleApp1
 {
