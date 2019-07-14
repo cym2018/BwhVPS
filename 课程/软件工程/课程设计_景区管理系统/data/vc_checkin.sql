@@ -1,0 +1,9 @@
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (1, 1, '2019-06-26 10:07:52', 3);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (2, 1, '2019-06-26 10:07:55', 3);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (3, 1, '2019-06-26 10:08:02', 3);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (4, 1, '2019-06-26 10:08:13', 3);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (5, 1, '2019-06-26 10:08:43', 3);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (6, 1, '2019-06-26 10:10:06', 13);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (7, 0, '2019-06-26 10:10:06', 13);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (8, 0, '2019-06-26 10:10:17', 13);
+INSERT INTO vc.checkin (id, userid, time, type) VALUES (9, 1, '2019-06-26 10:10:25', 13);

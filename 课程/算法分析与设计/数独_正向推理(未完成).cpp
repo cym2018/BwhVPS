@@ -218,7 +218,7 @@ public:
 					cout << "第" << i + 1 - 18 << "个九宫格差" << notHave[i][j] << "个" << j + 1 << endl;
 		}
 	}
-	// TODO:查找赋值
+	// 查找赋值
 	void useNotHave() {
 		//第i+1行
 		for (int i = 0; i < 9; i++) {
@@ -238,7 +238,7 @@ public:
 				}
 			}
 		}
-		// TODO:查找赋值
+		// 查找赋值
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				for (int k = 0; k < 9; k++) {

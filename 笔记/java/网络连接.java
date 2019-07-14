@@ -14,7 +14,7 @@ public class Connect {
         String token= Login(username, password);
         if(token==null){return null;}
         String rec=Connect.Get("http://seat.ujn.edu.cn/rest/v2/checkIn?token="+token);
-        assert rec != null;// TODO:处理null
+        assert rec != null;// 处理null
         rec=rec.substring(rec.indexOf("message\"")+10);
         rec=rec.substring(0,rec.indexOf("\""));
         return username.substring(username.length()-3)+" "+rec;
@@ -92,7 +92,7 @@ public class Connect {
             rec=rec.substring(0,rec.indexOf("\""));
             rec=username.substring(username.length()-3,username.length())+" "+rec;
         }
-        //TODO:格式处理
+        // 格式处理
         return rec;
     }
 }

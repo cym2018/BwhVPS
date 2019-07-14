@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="xyz.cym2018.Struts" extends="struts-default">
+        <action name="login" class="xyz.cym2018.Struts.A_Login">
+            <result name="管理">/M_index.jsp</result>
+            <result name="员工">/W_index.jsp</result>
+            <!--result name="商户">/BusinessView/</result-->
+            <result name="input">index_login.jsp</result>
+        </action>
+        <action name="buyticket" class="xyz.cym2018.Struts.V_TicketBuy">
+            <result name="success">/VisitorView/TicketId.jsp</result>
+        </action>
+        <action name="ticketinfo" class="xyz.cym2018.Struts.V_TicketInfo">
+            <result name="success">/M_TicketInfo.jsp</result>
+        </action>
+        <action name="ticketoperate" class="xyz.cym2018.Struts.V_TicketOperate">
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="createuser" class="xyz.cym2018.Struts.M_UserCreate">
+            <result name="success">/success.jsp</result>
+            <result name="worker">/M_AddWorker.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="input">/ManageView/CreateUser.jsp</result>
+        </action>
+        <action name="addworker" class="xyz.cym2018.Struts.M_AddWorker">
+            <result name="success">/success.jsp</result>
+        </action>
+        <action name="monitoring" class="xyz.cym2018.Struts.M_Index">
+            <result name="success">/M_ShowData.jsp</result>
+        </action>
+        <action name="checkin" class="xyz.cym2018.Struts.W_CheckIn">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="checkout" class="xyz.cym2018.Struts.W_CheckOut">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="showbalance" class="xyz.cym2018.Struts.M_BillShow">
+            <result name="success">/ManageView/ShowBalance.jsp</result>
+        </action>
+        <action name="showshop" class="xyz.cym2018.Struts.M_ShopShow">
+            <result name="success">/M_ShopShow.jsp</result>
+        </action>
+        <action name="manageshop" class="xyz.cym2018.Struts.M_ShopManage">
+            <result name="success">/M_ShopManage.jsp</result>
+        </action>
+        <action name="shopsave" class="xyz.cym2018.Struts.M_ShopSave">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+</struts>

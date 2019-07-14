@@ -1,0 +1,11 @@
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (1, 1, 2, 700);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (2, 1, 2, 700);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (3, 1, 6, 500);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (4, 1, 7, 900);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (5, 2, 3, 500);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (6, 2, 4, 700);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (7, 3, 5, 300);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (8, 4, 5, 400);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (9, 4, 7, 400);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (10, 5, 8, 700);
+INSERT INTO vc.near (id, id1, id2, distance) VALUES (11, 7, 8, 800);

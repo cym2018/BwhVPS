@@ -40,7 +40,7 @@ public class MysqlOperate {
     //保存学生信息
     static void SaveStudentInfo(Action1 ac1) {
         SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-        // TODO;新建
+        // 新建
         bWriteToSql("insert into info (id,username,name,password,gender,major,birthday,note) values " +
                 "(null,'" + ac1.getUsername() + "','" + ac1.getName() + "','"+ac1.getPassword()+"','" + ac1.getGender() + "','" + ac1.getMajor() + "','" + format.format(ac1.getBirthday()) + "','" + ac1.getNote() + "')");
     }
