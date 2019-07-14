@@ -40,7 +40,7 @@ __Tang Yinghao__:绘图(地图),系统功能设计
 为了减小本存储库的大小
 
 为了减小本存储库的文件.web文件夹下引用的第三方库和图片文件保存在
-[这里](https://github.com/cym2018/My_Tools/tree/master/File)d
+[这里](https://github.com/cym2018/My_Tools/tree/master/File)
 #
 前端页面分三个阶段编写
 
