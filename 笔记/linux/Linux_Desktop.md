@@ -12,8 +12,9 @@ Hyper-v Centos7 修改分辨率
 grubby --update-kernel=ALL --args="video=hyperv_fb:1280x768"
 ```
 
-# Install Google-Chrome
+# 安装google-chrome
 ```
+# 已知问题:在校园网环境下安装chrome,会导致无法联网
 https://www.cnblogs.com/ianduin/p/8727333.html
 cd /etc/yum.repo.d/
 touch google-chrome.repo
@@ -24,4 +25,14 @@ enabled=1
 gpgcheck=1
 gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 yum -y install google-chrome-stable --nogpgcheck
+```
+
+# 启用网络
+```shell
+cd /etc/sysconfig/network-scripts/
+# 找到
+# ifcfg-*
+# 将ONBOOT=no改为ONBOOT=yes
+# 重启服务
+service network restart
 ```
