@@ -100,5 +100,18 @@ public:
 	}
 };
 int main(int arvc, char** arvg) {
+	LinearList<char> test1;
+	test1.Add('c');
+	test1.Add('y');
+	test1.Add('m');
+	LinearList<int> test2;
+	test2.Add(2);
+	test2.Add(0);
+	test2.Add(1);
+	test2.Add(8);
+	for (int i = 0; i < test1.Length(); i++)
+		cout << test1.Read(i);
+	for (int i = 0; i < test2.Length(); i++)
+		cout << test2.Read(i);
 	return 0;
 }
