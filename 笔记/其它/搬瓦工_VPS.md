@@ -5,13 +5,13 @@ https://tunnelbroker.net/
 
 在上述网址注册一个账号,登录后选择'Create Regular Tunnel',输入vps的ipv4地址.
 
-在第二栏,选择linux web tool,获取linux 命令行.
+在Example Configuration栏选择Linux-net-tools
+
+复制文本框的命令
 
 2.服务器ipv6网络配置
 
-服务器执行得到的命令
-
-用一台支持ipv6的设备ping一下测试是否成功.
+粘贴
 
 3.影梭配置
 修改ss.json
@@ -27,5 +27,10 @@ https://tunnelbroker.net/
 "fast_open":false
 }
 ```
+
+4.运行
+ssserver -d start -c ss.json
+
+
 
 亲测可用
