@@ -176,4 +176,49 @@ yum install httpd
 
   ~
   
-结束
+结束 03点17分
+
+### 收回刚才的话
+反正睡不着觉,继续尝试搞一个邮件服务
+
+yum install mailx
+
+尝试发送邮件
+
+mail 87622XXXX@qq.com
+subject:nothing
+
+Ctrl+D
+```
+/usr/sbin/sendmail: No such file or directory
+"/root/dead.letter" 9/223
+. . . message not sent.
+```
+
+yum install sendmail
+
+第二次尝试发送邮件
+
+mail 87622XXXX@qq.com
+subject:nothing
+
+Ctrl+D
+
+```
+Null message body; hope that's ok
+```
+
+N次后确认发送失败
+
+###百度
+https://www.jianshu.com/p/9a769903a12f
+
+vim /etc/mail/sendmail.mc
+
+121行127.0.0.1改为0.0.0.0
+
+困了 不想写步骤了
+
+告辞
+
+03点55分
