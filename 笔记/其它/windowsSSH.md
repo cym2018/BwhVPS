@@ -1,1 +1,2 @@
 >scp -P 10000 C:\Users\cuige\IdeaProjects\DWNews2Mail\out\artifacts\DWNews2Mail_jar\DWNews2Mail.jar root@6.cym2018.xyz:/root/ 上传文件到服务器
+scp -P 10000 -r root@6.cym2018.xyz:/root/.ssh ./下载服务器的文件到本地
