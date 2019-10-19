@@ -6,3 +6,6 @@ chmod +x ./file
 ln -s ./ ./
 # 设置时区
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# 定时任务
+crontab
