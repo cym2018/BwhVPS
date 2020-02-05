@@ -26,3 +26,6 @@ conn = DriverManager.getConnection("jdbc:mysql://localhost/bus?user=root&passwor
 rs = conn.prepareStatement(s1).executeQuery();	//s1为查询语句
 ```
 
+## 允许外部连接
+
+
