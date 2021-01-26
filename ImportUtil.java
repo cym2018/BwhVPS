@@ -101,6 +101,9 @@ public class ImportUtil {
             String cell = describe.index == null ? null : row.get(describe.index);
             switch (describe.type) {
                 case String:
+                    if(cell==null){
+                        throw new Exception("空值");
+                    }
                     field.set(object, cell);
                     break;
                 case Integer:
